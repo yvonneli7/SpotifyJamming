@@ -11,7 +11,7 @@ class App extends React.Component{
     super(props);
     this.state = {
       searchResults: [track, track, track],
-      playlistTracks: [track,track],
+      playlistTracks: [{name : 'fun song2', artist: 'bob2', album: 'album 2', id: 2}],
       playlistName: 'New Playlist'
     }
 
@@ -21,8 +21,18 @@ class App extends React.Component{
   }
 
   addTrack(track){
-    let newPlaylist = this.state.playlistTracks.push(track)
-    this.setState({playlistTracks: newPlaylist});
+    let tracks = this.state.playlistTracks;
+
+    this.state.playlistTracks.find(element => {
+      if(element.id === track.id){
+        return;
+      }
+      tracks.push(track);
+      this.setState({playlistTracks: tracks});
+
+
+    });
+
 
   }
 
