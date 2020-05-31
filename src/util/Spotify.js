@@ -1,6 +1,6 @@
 let accessToken;
 const clientId = '2bee81c9516d4cfa94865d02f4c6a843';
-const redirectUri = 'http://localhost:3000/';
+const redirectUri = 'http://yvonnejams.surge.sh';
 
 const Spotify = {
     getAccessToken(){
@@ -28,7 +28,6 @@ const Spotify = {
 
     search(term){
         const accessToken = Spotify.getAccessToken();
-        console.log(accessToken);
 
         return fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
             headers: {

@@ -5,7 +5,6 @@ import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
 import Spotify from '../../util/Spotify';
 
-//let track = {name : 'fun song', artist: 'bob', album: 'album 1', id: 1};
 
 class App extends React.Component{
   constructor(props){
@@ -40,11 +39,9 @@ class App extends React.Component{
   }
 
   removeTrack(track){
-    console.log('suk');
     let tracks = this.state.playlistTracks;
 
     let newPlaylist = tracks.filter(element => element.id !== track.id);
-    console.log(newPlaylist);
     this.setState({
       playlistTracks: newPlaylist
     });
@@ -66,7 +63,6 @@ class App extends React.Component{
 
     })
 
-    console.log(tracks);
 
 
 
@@ -79,7 +75,6 @@ class App extends React.Component{
   }
 
   search(term){
-    console.log(term);
     Spotify.search(term).then(tracks => {
       this.setState({
         searchResults: tracks
